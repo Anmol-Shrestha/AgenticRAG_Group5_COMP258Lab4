@@ -65,19 +65,18 @@ DOMAIN_PROMPT = ChatPromptTemplate.from_messages(
     [
         (
             "system",
-            "Determine whether the user's question belongs to the Ontario Traffic Manual (OTM).\n\n"
-            "Valid OTM topics include:\n"
-            "- Traffic control devices (signs, signals, markings)\n"
-            "- Design, application, and operation of traffic control systems\n"
-            "- Temporary traffic control (e.g., Book 7)\n"
-            "- Work zone traffic safety\n"
-            "- Roadway environment consistency and uniformity\n"
-            "- Guidelines aligned with the Highway Traffic Act\n"
-            "- Engineering judgement related to traffic operations\n"
-            "- Best practices for traffic practitioners in Ontario\n"
-            "- Interpretation and application of OTM guidelines\n"
-            "- Documentation of deviations from traffic control guidelines\n"
-            "- Any topic directly related to OTM Books, standards, procedures, or use in practice\n\n"
+            "Determine whether the user's question belongs to the Smart City Vision Dataset.\n\n"
+            "Valid topics include:\n"
+            "- Automated pothole detection\n"
+            "- Dangerous road condition identification\n"
+            "- Broken traffic/road sign detection\n"
+            "- Illegal parking monitoring using images\n"
+            "- Street cleanliness and garbage detection\n"
+            "- Image preprocessing techniques (resize, normalize, CLAHE, edge detection)\n"
+            "- Recommended computer vision models (CNNs, ResNet, EfficientNet, ViT, YOLO, Faster R-CNN)\n"
+            "- Image classification or object detection tasks using the dataset\n"
+            "- Dataset composition, labels, categories, and image specifications\n"
+            "- Applications of computer vision for smart-city analytics and road monitoring\n\n"
             "If the question fits these topics, answer ONLY: in-domain\n"
             "Otherwise answer ONLY: out-of-domain"
         ),
@@ -186,15 +185,15 @@ def domain_check_node(state: GraphState) -> GraphState:
         return {
             **state,
             "answer": (
-                "I could not find this information in the provided materials. "
-    "This assistant only answers topics related to the Ontario Traffic Manual, "
-    "including traffic control devices, temporary traffic control, signage, "
-    "work zone safety, and guidelines for traffic operations in Ontario."
-            ),
+    "I could not find this information in the provided Smart City dataset materials. "
+    "This assistant only answers topics related to smart-city image analytics, including pothole detection, "
+    "damaged roads, broken signs, illegal parking, and cleanliness issues using computer vision models."
+),
             "context": "",
             "source_documents": [],
             "suggested_questions": [],
             "needs_more": False,
+            "summary":""
         }
 
     return state
